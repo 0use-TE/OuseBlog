@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="第 1 页" id="nyCaGMH-oTfAxhWprkz8">
+    <mxGraphModel dx="1697" dy="931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-2" value="结束" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="600" y="369" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Is7xczlNuTQ46VGseZEa-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="p1WTQ6GHZWWOoZHAgSzZ-3" target="p1WTQ6GHZWWOoZHAgSzZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-3" value="编译为IL，不同的目标平台有所不同" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="369" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-4" value="发布过程会根据目标平台，打包&lt;div&gt;对用的运行时，链接特定于平台的&lt;/div&gt;&lt;div&gt;抽象(Handler)，通过反射找到&lt;/div&gt;&lt;div&gt;启动入口&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="240" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Is7xczlNuTQ46VGseZEa-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p1WTQ6GHZWWOoZHAgSzZ-6" target="p1WTQ6GHZWWOoZHAgSzZ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-6" value="操作系统运行启动入口，加载DI,配置..." style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="369" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Is7xczlNuTQ46VGseZEa-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p1WTQ6GHZWWOoZHAgSzZ-7" target="p1WTQ6GHZWWOoZHAgSzZ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-7" value="开发完成" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="369" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-9" value="操作系统" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1293" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-10" value="" style="swimlane;startSize=0;" parent="1" vertex="1">
+          <mxGeometry x="893" y="410" width="354" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-12" value="" style="whiteSpace=wrap;html=1;" parent="p1WTQ6GHZWWOoZHAgSzZ-10" vertex="1">
+          <mxGeometry x="20" y="80" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-13" value="Handler" style="whiteSpace=wrap;html=1;" parent="p1WTQ6GHZWWOoZHAgSzZ-10" vertex="1">
+          <mxGeometry x="190" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-17" value="IL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;fontStyle=1" parent="p1WTQ6GHZWWOoZHAgSzZ-10" vertex="1">
+          <mxGeometry x="145" y="50" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-18" value="开发者代码" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;fontStyle=0" parent="p1WTQ6GHZWWOoZHAgSzZ-10" vertex="1">
+          <mxGeometry x="55" y="135" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-11" value="CLR" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1028" y="380" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-15" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="p1WTQ6GHZWWOoZHAgSzZ-13" target="p1WTQ6GHZWWOoZHAgSzZ-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1323" y="560" as="sourcePoint" />
+            <mxPoint x="1373" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-16" value="本职工作外，处理IL和Handler的交互" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="953" y="428" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p1WTQ6GHZWWOoZHAgSzZ-20" value="运行时通过不同的技术与不同的平台进行通讯" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1123" y="500" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Is7xczlNuTQ46VGseZEa-9" value="&lt;div&gt;&lt;p style=&quot;white-space-collapse: preserve;&quot; class=&quot;break-words&quot;&gt;当程序启动后，CLR 开始执行 IL 代码。开发者所创建的 UI（例如按钮 &lt;span class=&quot;text-sm px-1 rounded-sm !font-mono bg-sunset/10 text-rust dark:bg-dawn/10 dark:text-dawn&quot;&gt;&amp;lt;Button&amp;gt;点击我&amp;lt;/Button&amp;gt;&lt;/span&gt;）并不会直接渲染到屏幕上，因为 MAUI 本身并不提供渲染引擎。相反，MAUI 通过特定于平台的 Handler 系统，将开发者定义的组件映射到操作系统提供的原生控件进行渲染。可以将 Handler 理解为 C# 层面对操作系统控件的一种抽象（类似于指针）。在运行时，系统会加载相应的 Handler 代码，并通过不同的技术与目标平台通信，从而完成组件的渲染。&lt;/p&gt;&lt;p style=&quot;white-space-collapse: preserve;&quot; class=&quot;break-words&quot;&gt;后续过程如下：当用户触发事件（例如点击按钮）时，操作系统会捕获该事件并将其传递给运行时。运行时根据预先确定的 Handler（这一绑定关系在编译时就已经决定），找到对应的开发者组件及其关联的事件（例如 &lt;span class=&quot;text-sm px-1 rounded-sm !font-mono bg-sunset/10 text-rust dark:bg-dawn/10 dark:text-dawn&quot;&gt;OnClick&lt;/span&gt;）。随后，Handler 会触发开发者所编写的逻辑。C# 处理完成后，再通过 Handler 系统将更新传递给操作系统，重新渲染对应的原生控件。&lt;/p&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="690" width="690" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

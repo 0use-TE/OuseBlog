@@ -1,0 +1,142 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="第 1 页" id="a-G-LNJ-ip4KW--9Ljld">
+    <mxGraphModel dx="2441" dy="1040" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-1" value="/// &lt;summary&gt;&#xa;    /// Invoked if authentication fails during request processing. The exceptions will be re-thrown after this event unless suppressed.&#xa;    /// &lt;/summary&gt;&#xa;    public Func&lt;AuthenticationFailedContext, Task&gt; OnAuthenticationFailed { get; set; } = context =&gt; Task.CompletedTask;&#xa;&#xa;&#xa;    /// &lt;summary&gt;&#xa;    /// Invoked if Authorization fails and results in a Forbidden response.&#xa;    /// &lt;/summary&gt;&#xa;    public Func&lt;ForbiddenContext, Task&gt; OnForbidden { get; set; } = context =&gt; Task.CompletedTask;&#xa;&#xa;&#xa;    /// &lt;summary&gt;&#xa;    /// Invoked when a protocol message is first received.&#xa;    /// &lt;/summary&gt;&#xa;    public Func&lt;MessageReceivedContext, Task&gt; OnMessageReceived { get; set; } = context =&gt; Task.CompletedTask;&#xa;&#xa;&#xa;    /// &lt;summary&gt;&#xa;    /// Invoked after the security token has passed validation and a ClaimsIdentity has been generated.&#xa;    /// &lt;/summary&gt;&#xa;    public Func&lt;TokenValidatedContext, Task&gt; OnTokenValidated { get; set; } = context =&gt; Task.CompletedTask;&#xa;&#xa;&#xa;    /// &lt;summary&gt;&#xa;    /// Invoked before a challenge is sent back to the caller.&#xa;    /// &lt;/summary&gt;&#xa;    public Func&lt;JwtBearerChallengeContext, Task&gt; OnChallenge { get; set; } = context =&gt; Task.CompletedTask;" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-370" y="278" width="560" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-2" target="yHTRPtaRBdW3-sNaqETN-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-2" value="进入Authentication中间件" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-3" target="yHTRPtaRBdW3-sNaqETN-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-3" value="OnMessageRecevied" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-6" target="yHTRPtaRBdW3-sNaqETN-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-6" target="yHTRPtaRBdW3-sNaqETN-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-6" value="有无token" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="270" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-8" target="yHTRPtaRBdW3-sNaqETN-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-8" value="进行身份验证" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-10" target="yHTRPtaRBdW3-sNaqETN-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-10" value="不进行身份验证&lt;div&gt;直接进行授权&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-12" value="有" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="490" y="278" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-14" value="无" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="680" y="278" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-21" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-23" target="yHTRPtaRBdW3-sNaqETN-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-23" value="&lt;div&gt;触发&lt;/div&gt;OnTokenValidated" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-24" target="yHTRPtaRBdW3-sNaqETN-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-24" target="yHTRPtaRBdW3-sNaqETN-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-24" value="验证成功" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="450" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-25" target="yHTRPtaRBdW3-sNaqETN-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-25" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;触发OnAuthentiacationFailed&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-38" target="yHTRPtaRBdW3-sNaqETN-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-38" value="身份没有认证或者失败" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-40" target="yHTRPtaRBdW3-sNaqETN-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-40" value="身份认证成功" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-42" target="yHTRPtaRBdW3-sNaqETN-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-42" target="yHTRPtaRBdW3-sNaqETN-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-42" value="需要授权" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="790" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-44" target="yHTRPtaRBdW3-sNaqETN-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="850" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-44" target="yHTRPtaRBdW3-sNaqETN-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-44" value="需要授权" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="780" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-46" value="触发OnChallenge&lt;div&gt;返回401&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-47" value="直接跳过中间件" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-51" value="直接跳过中间件" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yHTRPtaRBdW3-sNaqETN-54" target="yHTRPtaRBdW3-sNaqETN-56">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-54" value="权限是否够" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="880" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-56" value="结束中间件" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yHTRPtaRBdW3-sNaqETN-58" value="触发&lt;span style=&quot;text-align: left;&quot;&gt;OnForbidden&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;text-align: left;&quot;&gt;返回403&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
