@@ -10,7 +10,7 @@
 
    ```bash
    curl -x http://localhost:7897 http://httpbin.org/ip
-   ```
+   ``` 
 
 2. **通过 SSH 映射本地端口：** 在远程主机上，使用 SSH 映射端口：
 
