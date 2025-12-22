@@ -1,32 +1,38 @@
-name: Update Index
+name: Generate Index
 
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - '**.md'      # 只有文章变动才执行
-      - 'App.cs'     # 脚本变动也执行
+    branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
-  run-indexer:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout main
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 10.0.x
-        include-prerelease: true
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
 
-    - name: Run Indexer Script
-      # 在 .NET 中直接运行单个 .cs 文件
-      run: dotnet run App.cs
+      - name: Run generator
+        run: dotnet run App.cs
 
-    - name: Commit and Push
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add index.json
-        # 如果 index.json 没变化就不提交，防止报错
-        git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update index.json [skip ci]" && git push)
+      - name: Push to generated branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "action@github.com"
+
+          git checkout --orphan generated
+          git reset --hard
+
+          cp index.json index.html ./
+
+          git add index.json index.html
+          git commit -m "chore: update index"
+          git push -f origin generated
