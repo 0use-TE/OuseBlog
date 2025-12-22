@@ -7,29 +7,32 @@ using System.Text.Json.Serialization.Metadata;
 
 // 1. 获取当前路径
 var root = Directory.GetCurrentDirectory();
-// 增加 index.json 和 temp_data 的过滤，防止自循环
 var excludeKeywords = new[] { ".github", "bin", "obj", ".vscode", "App.cs", "index.json", "temp_data" };
 
 // 2. 扫描并构建对象
 var posts = Directory.EnumerateFiles(root, "*.md", SearchOption.AllDirectories)
     .Where(file => !excludeKeywords.Any(k => file.Contains(k)))
-.Select(file => {
+    .Select(file => {
         var fileInfo = new FileInfo(file);
         var fileName = Path.GetFileNameWithoutExtension(file);
         var relativePath = Path.GetRelativePath(root, file).Replace("\\", "/");
         
-        // 1. 获取所有层级的文件夹名
+        // --- 核心逻辑：只取最顶级目录 ---
+        // 按照 / 分割相对路径
         var parts = relativePath.Split('/');
-        var folderLevels = parts.Take(parts.Length - 1).ToList();
+        string categoryDisplay;
 
-        // 2. 核心逻辑：如果最后一级文件夹名等于文件名，就把它删掉
-        if (folderLevels.Count > 0 && folderLevels.Last().Equals(fileName, StringComparison.OrdinalIgnoreCase))
+        // 如果路径包含文件夹 (例如: Dotnet/Blazor/test.md -> parts[0] 是 Dotnet)
+        if (parts.Length > 1)
         {
-            folderLevels.RemoveAt(folderLevels.Count - 1);
+            categoryDisplay = parts[0];
         }
-        
-        // 3. 组合分类字符串
-        string categoryDisplay = folderLevels.Any() ? string.Join(", ", folderLevels) : "未分类";
+        else
+        {
+            // 如果文件直接在根目录下
+            categoryDisplay = "未分类";
+        }
+        // ------------------------------
 
         return new {
             title = fileName,
