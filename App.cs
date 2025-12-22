@@ -3,44 +3,41 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using System.Text.Json.Serialization.Metadata;
 
-// 1. 获取当前执行路径（GitHub Action 会在仓库根目录运行）
+// 1. 获取当前路径
 var root = Directory.GetCurrentDirectory();
+var excludeKeywords = new[] { ".github", "bin", "obj", ".vscode", "App.cs" };
 
-// 2. 扫描所有 Markdown 文件
-// 排除掉不相关的目录，避免把 README 或者 Action 脚本也抓进去
-var excludeKeywords = new[] { ".github", "bin", "obj", ".vscode" };
-
+// 2. 扫描并构建对象
 var posts = Directory.EnumerateFiles(root, "*.md", SearchOption.AllDirectories)
     .Where(file => !excludeKeywords.Any(k => file.Contains(k)))
     .Select(file => {
         var fileInfo = new FileInfo(file);
-        // 获取相对路径并统一使用正斜杠 /
-        var relativePath = Path.GetRelativePath(root, file).Replace("\\", "/");
-        // 获取直接父级的文件夹名
-        var parentDir = fileInfo.Directory?.Name ?? "未分类";
-
         return new {
             title = Path.GetFileNameWithoutExtension(file),
-            path = relativePath,
-            category = parentDir,
+            path = Path.GetRelativePath(root, file).Replace("\\", "/"),
+            category = fileInfo.Directory?.Name ?? "未分类",
             date = fileInfo.LastWriteTimeUtc.ToString("yyyy-MM-dd")
         };
     })
-    .OrderByDescending(p => p.date) // 最新的排在前面
+    .OrderByDescending(p => p.date)
     .ToList();
 
-// 3. 配置 JSON 写入选项（处理中文不转义）
+// 3. 解决报错的关键：配置序列化选项
 var options = new JsonSerializerOptions { 
     WriteIndented = true, 
-    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping 
+    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+    // 【关键修复】手动指定反射解析器，解决 InvalidOperationException
+    TypeInfoResolver = new DefaultJsonTypeInfoResolver() 
 };
 
 // 4. 生成文件
-var jsonString = JsonSerializer.Serialize(posts, options);
-File.WriteAllText("index.json", jsonString);
-
-Console.WriteLine($"------------------------------------------");
-Console.WriteLine($"成功生成索引！共计: {posts.Count} 篇文章");
-Console.WriteLine($"文件已保存在: {Path.Combine(root, "index.json")}");
-Console.WriteLine($"------------------------------------------");
+try {
+    var jsonString = JsonSerializer.Serialize(posts, options);
+    File.WriteAllText("index.json", jsonString);
+    Console.WriteLine($"成功! 已索引 {posts.Count} 篇文章。");
+}
+catch (Exception ex) {
+    Console.WriteLine($"序列化失败: {ex.Message}");
+}
