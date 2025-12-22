@@ -13,23 +13,26 @@ var excludeKeywords = new[] { ".github", "bin", "obj", ".vscode", "App.cs", "ind
 // 2. 扫描并构建对象
 var posts = Directory.EnumerateFiles(root, "*.md", SearchOption.AllDirectories)
     .Where(file => !excludeKeywords.Any(k => file.Contains(k)))
-    .Select(file => {
+.Select(file => {
         var fileInfo = new FileInfo(file);
-        // 统一路径格式
+        var fileName = Path.GetFileNameWithoutExtension(file);
         var relativePath = Path.GetRelativePath(root, file).Replace("\\", "/");
         
-        // --- 核心逻辑：有多少级取多少级 ---
+        // 1. 获取所有层级的文件夹名
         var parts = relativePath.Split('/');
-        // 排除掉最后的文件名部分，取前面的所有文件夹名
-        // 例如: Dotnet/Blazor/Test.md -> ["Dotnet", "Blazor"]
-        var categories = parts.Take(parts.Length - 1).ToList();
+        var folderLevels = parts.Take(parts.Length - 1).ToList();
+
+        // 2. 核心逻辑：如果最后一级文件夹名等于文件名，就把它删掉
+        if (folderLevels.Count > 0 && folderLevels.Last().Equals(fileName, StringComparison.OrdinalIgnoreCase))
+        {
+            folderLevels.RemoveAt(folderLevels.Count - 1);
+        }
         
-        // 如果文件直接在根目录，分类设为"未分类"
-        string categoryDisplay = categories.Any() ? string.Join(", ", categories) : "未分类";
-        // ---------------------------------
+        // 3. 组合分类字符串
+        string categoryDisplay = folderLevels.Any() ? string.Join(", ", folderLevels) : "未分类";
 
         return new {
-            title = Path.GetFileNameWithoutExtension(file),
+            title = fileName,
             path = relativePath,
             category = categoryDisplay,
             date = fileInfo.LastWriteTimeUtc.ToString("yyyy-MM-dd")
