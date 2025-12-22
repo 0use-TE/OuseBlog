@@ -3,7 +3,9 @@ name: Generate Index
 on:
   push:
     branches: [ main ]
+  workflow_dispatch: # 允许手动触发
 
+# 核心权限设置：允许 Action 推送代码
 permissions:
   contents: write
 
@@ -14,25 +16,44 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整历史以确保能切换分支
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
+          include-prerelease: true
 
       - name: Run generator
         run: dotnet run App.cs
 
       - name: Push to generated branch
         run: |
+          # 1. 临时保存生成的索引文件
+          mkdir temp_data
+          cp index.json temp_data/
+          [ -f index.html ] && cp index.html temp_data/
+
+          # 2. 配置 Git 身份
           git config user.name "github-actions[bot]"
-          git config user.email "action@github.com"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # 3. 强制切换到孤立分支 generated
+          # 如果分支已存在，此操作会重置该分支
           git checkout --orphan generated
-          git reset --hard
+          
+          # 4. 清空暂存区的所有 main 分支内容
+          git rm -rf .
+          
+          # 5. 还原索引文件
+          cp temp_data/* ./
+          rm -rf temp_data
 
-          cp index.json index.html ./
-
-          git add index.json index.html
-          git commit -m "chore: update index"
+          # 6. 提交并强制推送
+          git add index.json
+          [ -f index.html ] && git add index.html
+          git commit -m "chore: auto-update index [skip ci]"
+          
+          # 使用 GITHUB_TOKEN 确保有权限推送
           git push -f origin generated
