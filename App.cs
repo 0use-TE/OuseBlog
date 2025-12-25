@@ -23,9 +23,9 @@ var posts = Directory.EnumerateFiles(root, "*.md", SearchOption.AllDirectories)
         string categoryDisplay;
 
         // 如果路径包含文件夹 (例如: Dotnet/Blazor/test.md -> parts[0] 是 Dotnet)
-        if (parts.Length > 1)
+        if (parts.Length > 2)
         {
-            categoryDisplay = parts[0];
+            categoryDisplay = parts[parts.Count()-3];
         }
         else
         {
