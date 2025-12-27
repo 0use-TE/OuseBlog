@@ -1,16 +1,16 @@
-### AngularVSCode»·¾³ÅäÖÃ
-#### °²×°Angular
-Ç°ÍùAngular¹ÙÍøhttps://angular.dev/£¬²é¿´Angular¸üĞÂÄÚÈİ  
-1. ÏÈ°²×°nodejs
+### AngularVSCodeç¯å¢ƒé…ç½®
+#### å®‰è£…Angular
+å‰å¾€Angularå®˜ç½‘https://angular.dev/ï¼ŒæŸ¥çœ‹Angularæ›´æ–°å†…å®¹  
+1. å…ˆå®‰è£…nodejs
 1. ```npm install -g @angular/cli```
-1. ```ng new <project-name>``` ´´½¨ÏîÄ¿
-#### VscodeÅäÖÃ»·¾³
-1. °²×°¹Ù·½ÍØÕ¹
+1. ```ng new <project-name>``` åˆ›å»ºé¡¹ç›®
+#### Vscodeé…ç½®ç¯å¢ƒ
+1. å®‰è£…å®˜æ–¹æ‹“å±•
 ![](./assets/1.png)
-1. °²×°´úÂëÆ¬¶Î(°üº¬MaterialDesign) ¿ÉÑ¡
+1. å®‰è£…ä»£ç ç‰‡æ®µ(åŒ…å«MaterialDesign) å¯é€‰
 ![](./assets/2.png)
-1. °²×°ÓïÑÔÔöÇ¿ÍØÕ¹(°üº¬×Ô¶¯µ¼Èë×é¼ş)
+1. å®‰è£…è¯­è¨€å¢å¼ºæ‹“å±•(åŒ…å«è‡ªåŠ¨å¯¼å…¥ç»„ä»¶)
 ![](./assets/3.png)
-1. ÎªAngularMaterialÌí¼ÓÔöÇ¿ÍØÕ¹(·Ç³£ÍÆ¼ö)
+1. ä¸ºAngularMaterialæ·»åŠ å¢å¼ºæ‹“å±•(éå¸¸æ¨è)
 ![](./assets/4.png)
 ![](./assets/5.png)

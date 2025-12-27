@@ -1,13 +1,13 @@
-### BlazorServer¼¯³ÉApiºÍRazorPage
-#### ¼¯³ÉWebApi
-1. Èç¹ûÄúÊ¹ÓÃµÄÊÇminiApi£¬ÄÇ¾ÍÖ±½ÓÊ¹ÓÃapp¾Í¿ÉÒÔÁË
-1. ¿ØÖÆÆ÷£¬ÄúĞèÒªÌí¼ÓÁ½´¦:   
-Ìí¼Ó·şÎñ ```builder.Services.AddControllers();```  
-Ìí¼ÓÖĞ¼ä¼ş ```app.MapControllers();```
-#### ¼¯³ÉRazorPage
-ÄúĞèÒªĞŞ¸ÄÁ½´¦:  
-Ìí¼Ó·şÎñ```builder.Services.AddRazorPages();```  
-Ìí¼ÓÖĞ¼ä¼ş```app.MapRazorPages();```
+### BlazorServeré›†æˆApiå’ŒRazorPage
+#### é›†æˆWebApi
+1. å¦‚æœæ‚¨ä½¿ç”¨çš„æ˜¯miniApiï¼Œé‚£å°±ç›´æ¥ä½¿ç”¨appå°±å¯ä»¥äº†
+1. æ§åˆ¶å™¨ï¼Œæ‚¨éœ€è¦æ·»åŠ ä¸¤å¤„:   
+æ·»åŠ æœåŠ¡ ```builder.Services.AddControllers();```  
+æ·»åŠ ä¸­é—´ä»¶ ```app.MapControllers();```
+#### é›†æˆRazorPage
+æ‚¨éœ€è¦ä¿®æ”¹ä¸¤å¤„:  
+æ·»åŠ æœåŠ¡```builder.Services.AddRazorPages();```  
+æ·»åŠ ä¸­é—´ä»¶```app.MapRazorPages();```
 
-#### ½áÓï
-Ï£ÍûÄÜÕâÆª²©¿ÍÄÜ°ïÖúµ½Äú!
+#### ç»“è¯­
+å¸Œæœ›èƒ½è¿™ç¯‡åšå®¢èƒ½å¸®åŠ©åˆ°æ‚¨!
