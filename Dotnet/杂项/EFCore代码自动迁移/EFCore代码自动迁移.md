@@ -1,3 +1,5 @@
+### EFCore代码自动迁移
+
 **在program.cs下面添加**
 
 ```csharp
@@ -8,4 +10,3 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 ```
-

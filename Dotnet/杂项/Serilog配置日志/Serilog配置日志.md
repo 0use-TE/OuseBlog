@@ -1,3 +1,5 @@
+### Serilog配置日志
+
 ```csharp
   //Logger
       // 配置日志
@@ -11,3 +13,5 @@
           .CreateLogger();
 ```
 
+后续添加输出目标，只需要安装对应的包
+然后WriteTo.xxx()即可

@@ -1,4 +1,4 @@
-🧱 一、项目级指定（最常用）
+### Dotnet项目指定sdk
 
 在项目根目录的 global.json 文件中指定 SDK 版本。
 
@@ -16,7 +16,3 @@
 ```
 
 version: 指定确切的 SDK 版本。
-
-rollForward: 控制当该版本不存在时的向前兼容策略（例如 latestFeature、major、disable）。
-
-📍 优先级最高：同目录下执行 dotnet build、dotnet run，会优先使用此版本。
