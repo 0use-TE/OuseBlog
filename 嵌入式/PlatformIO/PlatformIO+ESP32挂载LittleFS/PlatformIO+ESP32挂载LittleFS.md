@@ -1,6 +1,6 @@
-### 分步教程
+### **PlatformIO+ESP32挂载LittleFS**
 
-
+#### 分步教程
 
 1. platformio.ini添加如下配置
 
@@ -44,8 +44,6 @@ void loop() {
 ```
 
 ### 常用api
-
-
 
 1. 初始化与格式化
 
