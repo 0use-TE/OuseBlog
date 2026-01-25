@@ -69,8 +69,9 @@
          # -c Release: 使用发布模式
          # -o release: 将结果输出到名为 release 的文件夹
          # 注意：请确保下方的路径指向你实际的 .Wasm.csproj 文件
+         #注意路径开头不能写/
          - name: Dotnet Publish
-           run: dotnet publish /your/project.wasm -c Release -o release
+           run: dotnet publish your/project.wasm -c Release -o release
 
          # 5. 修正 GitHub Pages 路径
          # GitHub Pages 默认路径是 /仓库名/，而生成的 index.html 默认是 /
