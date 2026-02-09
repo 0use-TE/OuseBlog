@@ -44,3 +44,9 @@
    ```@plugin
    @plugin "daisyui";
    ```
+
+### 结语
+
+实测空项目打包体积
+
+![1770607001736](images/SvelteWithDaisyUI/1770607001736.png)
