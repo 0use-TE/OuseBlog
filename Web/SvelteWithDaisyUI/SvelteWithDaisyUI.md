@@ -11,5 +11,36 @@
    ```bash
    npm create vite@latest my-svelte-app -- --template svelte-ts
    ```
-2. 安装DaisyUI
-3.
+2. 安装Tailwind
+
+   ```bash
+   npm install tailwindcss @tailwindcss/vite
+   ```
+3. 配置Vite插件
+
+   ```typescript
+   import { defineConfig } from 'vite'
+   import tailwindcss from '@tailwindcss/vite'
+
+   export default defineConfig({
+     plugins: [
+       tailwindcss(),
+     ],
+   })
+   ```
+4. 在CSS 文件中添加一个导入 Tailwind CSS 的 `@import`
+
+   ```
+   @import "tailwindcss";
+   ```
+5. 安装daisyui
+
+   ```
+   npm i -D daisyui@latest
+   ```
+
+   app.css文件添加
+
+   ```@plugin
+   @plugin "daisyui";
+   ```
