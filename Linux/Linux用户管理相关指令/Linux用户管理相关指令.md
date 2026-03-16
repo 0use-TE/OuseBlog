@@ -70,6 +70,44 @@ Linux 中有两个指令可以创建用户，建议使用 **`adduser`**，因为
   sudo passwd username
   ```
 
+#### 5. 查看用户
+
+* **查看所有用户列表：**
+  **Bash**
+
+  ```
+  cat /etc/passwd
+  ```
+
+  *输出格式：`username:x:uid:gid:info:home:shell`，真正的密码在 `/etc/shadow` 中。*
+* **查看当前登录的用户：**
+  **Bash**
+
+  ```
+  who
+  ```
+* **查看当前用户名：**
+  **Bash**
+
+  ```
+  whoami
+  ```
+
+#### 6. 删除用户
+
+* **删除用户（保留家目录）：**
+  **Bash**
+
+  ```
+  sudo userdel username
+  ```
+* **删除用户（同时删除家目录）：**
+  **Bash**
+
+  ```
+  sudo userdel -r username
+  ```
+
 #### 总结一个完整流程：
 
 如果你要为一个新同事开通权限，流程通常是这样的：
