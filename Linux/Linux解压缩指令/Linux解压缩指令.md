@@ -1,7 +1,5 @@
 # Linux 解压缩指令
 
-
-
 ### 1. tar（最常用）
 
 打包归档，不压缩：
@@ -21,14 +19,13 @@ tar -xzvf archive.tar.gz -C /path/   # 解压到指定目录
 ```
 
 常用选项说明：
+
 - `-c` create 创建归档
 - `-x` extract 解压
 - `-v` verbose 显示过程
 - `-f` file 指定文件名
 - `-z` gzip 压缩
 - `-C` directory 切换到指定目录
-
-------
 
 ### 2. gzip
 
@@ -41,8 +38,6 @@ gzip -d filename.gz   # 解压
 gunzip filename.gz    # 解压，等价于 gzip -d
 gzip -9 filename      # 最高压缩率
 ```
-
-------
 
 ### 3. zip（跨平台常用）
 
@@ -59,8 +54,6 @@ unzip -q archive.zip              # 静默解压
 
 需要安装：`sudo apt install zip unzip`
 
-------
-
 ### 4. rar
 
 ```bash
@@ -74,8 +67,6 @@ rar l archive.rar                # 查看内容
 
 需要安装：`sudo apt install rar unrar`
 
-------
-
 ### 5. 7z（高压缩率）
 
 ```bash
@@ -88,8 +79,6 @@ rar l archive.rar                # 查看内容
 ```
 
 需要安装：`sudo apt install p7zip-full`
-
-------
 
 ### 6. 常见问题
 
