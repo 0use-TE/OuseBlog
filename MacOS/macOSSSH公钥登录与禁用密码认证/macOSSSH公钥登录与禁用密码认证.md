@@ -1,15 +1,15 @@
 ### macOS SSH 公钥登录与禁用密码认证
 
-示例：从其他电脑连接 Mac `192.168.1.100`，用户名 `bean`。请替换为实际地址和用户名。
+示例：从其他电脑连接 Mac `192.168.1.100`，用户名 `ouse`。请替换为实际地址和用户名。
 
 #### 1. 开启远程登录
 
-Mac 上打开 **系统设置 → 通用 → 共享 → 远程登录**，允许 `bean` 访问。
+Mac 上打开 **系统设置 → 通用 → 共享 → 远程登录**，允许 `ouse` 访问。
 
 先从客户端连接，首次连接核对主机指纹，登录后保留会话：
 
 ```sh
-ssh bean@192.168.1.100
+ssh ouse@192.168.1.100
 ```
 
 #### 2. 客户端生成密钥
@@ -28,23 +28,23 @@ ssh-keygen -t ed25519
 **Windows PowerShell：**
 
 ```powershell
-Get-Content "$HOME\.ssh\id_ed25519.pub" | ssh -T bean@192.168.1.100 "umask 077; mkdir -p ~/.ssh && chmod 700 ~/.ssh && printf '\n' >> ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+Get-Content "$HOME\.ssh\id_ed25519.pub" | ssh -T ouse@192.168.1.100 "umask 077; mkdir -p ~/.ssh && chmod 700 ~/.ssh && printf '\n' >> ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
 ```
 
 **macOS / Linux：**
 
 ```sh
-ssh -T bean@192.168.1.100 'umask 077; mkdir -p ~/.ssh && chmod 700 ~/.ssh && printf "\n" >> ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys' < ~/.ssh/id_ed25519.pub
+ssh -T ouse@192.168.1.100 'umask 077; mkdir -p ~/.ssh && chmod 700 ~/.ssh && printf "\n" >> ~/.ssh/authorized_keys && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys' < ~/.ssh/id_ed25519.pub
 ```
 
-这一步输入 bean 的账号密码。命令会追加公钥，保留原有授权。
+这一步输入 ouse 的账号密码。命令会追加公钥，保留原有授权。
 
 #### 4. 先测试公钥登录
 
 客户端另开终端执行，原会话不要关闭：
 
 ```sh
-ssh -o ControlPath=none -o PreferredAuthentications=publickey -i ~/.ssh/id_ed25519 bean@192.168.1.100
+ssh -o ControlPath=none -o PreferredAuthentications=publickey -i ~/.ssh/id_ed25519 ouse@192.168.1.100
 ```
 
 PowerShell 中将 `~/.ssh/id_ed25519` 替换为 `"$HOME\.ssh\id_ed25519"`。
@@ -87,7 +87,7 @@ macOS 自带“远程登录”通常会对新连接读取配置，无需执行 `
 客户端执行：
 
 ```sh
-ssh -o ControlPath=none -o PubkeyAuthentication=no -o PreferredAuthentications=password,keyboard-interactive bean@192.168.1.100
+ssh -o ControlPath=none -o PubkeyAuthentication=no -o PreferredAuthentications=password,keyboard-interactive ouse@192.168.1.100
 ```
 
 应无法登录，通常提示 `Permission denied (publickey)`。只有公钥测试成功、密码测试被拒绝后，才关闭原会话。
