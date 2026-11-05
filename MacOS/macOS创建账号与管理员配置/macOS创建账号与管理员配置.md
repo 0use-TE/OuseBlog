@@ -43,6 +43,33 @@ sudo passwd bean
 
 创建时的 FDE 警告涉及 FileVault 磁盘解锁权限，不等于账号创建失败，也不能直接解释密码错误。
 
+#### 5. 配置 sudo 免密
+
+使用 visudo 编辑，保存时会检查语法：
+
+```sh
+sudo EDITOR=nano visudo
+```
+
+在文件末尾添加，`bean` 替换为需要免密的用户名：
+
+```sudoers
+bean ALL=(ALL) NOPASSWD: ALL
+```
+
+按 `Ctrl+O`、回车保存，`Ctrl+X` 退出；如果提示语法错误，继续编辑修正。
+
+切换到 bean 账号后，清除缓存并测试：
+
+```sh
+sudo -k
+sudo -n whoami
+```
+
+输出 `root` 即成功。恢复密码验证时，用 visudo 删除刚添加的那一行。
+
+**这会允许该用户无需密码执行任意管理员命令，与 SSH 公钥免密登录是两回事。**
+
 需要 SSH 登录时，在 **系统设置 → 通用 → 共享 → 远程登录** 中允许该用户访问。
 
 下一篇：[SSH 公钥登录与禁用密码认证](../macOSSSH公钥登录与禁用密码认证/macOSSSH公钥登录与禁用密码认证.md)。
